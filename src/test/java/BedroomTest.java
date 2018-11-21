@@ -15,6 +15,7 @@ public class BedroomTest {
         guest1 = new Guest("Thomas");
         guest2 = new Guest("Oksana");
 
+
     }
 
     @Test
@@ -26,5 +27,12 @@ public class BedroomTest {
     public void addGuestToRoom(){
         room1.addGuest(guest1);
         assertEquals(1, room1.guestCount());
+    }
+
+    @Test
+    public void canCheckOutGuest(){
+        room1.addGuest(guest2);
+        room1.checkOutGuest(guest2);
+        assertEquals(0, room1.guestCount());
     }
 }

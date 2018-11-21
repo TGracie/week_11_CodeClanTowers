@@ -23,4 +23,7 @@ public class Function {
             System.out.println("Sorry room full");
         }
     }
+    public void checkOutGuest(Guest guest) {
+        this.guests.remove(guest);
+    }
 } // class end

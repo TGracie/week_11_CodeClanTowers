@@ -26,4 +26,11 @@ public class FunctionTest {
         roomA.addGuest(guest1);
         assertEquals(1, roomA.guestCount());
     }
+
+    @Test
+    public void canCheckOutGuest(){
+        roomA.addGuest(guest2);
+        roomA.checkOutGuest(guest2);
+        assertEquals(0, roomA.guestCount());
+    }
 }

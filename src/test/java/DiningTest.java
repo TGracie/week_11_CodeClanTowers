@@ -25,4 +25,10 @@ public class DiningTest {
         assertEquals(1, cafe.guestCount());
     }
 
+    @Test
+    public void canCheckOutGuest(){
+        cafe.addGuest(guest1);
+        cafe.checkOutGuest(guest1);
+        assertEquals(0, cafe.guestCount());
+    }
 }
