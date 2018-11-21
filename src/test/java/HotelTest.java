@@ -17,7 +17,7 @@ public class HotelTest {
 
     @Before
     public void before(){
-        hotel = new Hotel("Marriott");
+        hotel = new Hotel("Marriott", 500);
         room1 = new Bedroom(1, 2, "Double", 80);
         room2 = new Bedroom(2, 1, "Single", 60);
         roomA = new Function(3, "A");
@@ -84,9 +84,12 @@ public class HotelTest {
 
         // guest needs to pay bill
         guest1.payBill(bill);
+        hotel.receivePayment(bill);
 
         // asserting that the money has left the guest
         assertEquals(2600, guest1.wallet());
+        // asserting that money has arrived in till
+        assertEquals(900, hotel.till());
     }
 
 }

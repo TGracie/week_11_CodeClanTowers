@@ -2,17 +2,23 @@ import java.util.ArrayList;
 
 public class Hotel {
     private String name;
+    private int till;
     private ArrayList<Bedroom> bedrooms;
     private ArrayList<Function> functions;
     private ArrayList<Dining> dining;
     private ArrayList<Booking> bookings;
 
-    public Hotel(String name){
+    public Hotel(String name, int till){
         this.name = name;
+        this.till = till;
         this.bedrooms = new ArrayList<>();
         this.functions = new ArrayList<>();
         this.dining = new ArrayList<>();
         this.bookings = new ArrayList<>();
+    }
+
+    public int till(){
+        return this.till;
     }
 
     public void addBedroom(Bedroom room) {
@@ -54,8 +60,11 @@ public class Hotel {
         return newBooking;
     }
 
-
     public int bookingCount() {
         return this.bookings.size();
+    }
+
+    public void receivePayment(int bill){
+        this.till += bill;
     }
 }
