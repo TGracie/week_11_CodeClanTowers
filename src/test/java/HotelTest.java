@@ -92,4 +92,10 @@ public class HotelTest {
         assertEquals(900, hotel.till());
     }
 
+    @Test
+    public void roomAlreadyBooked(){
+        hotel.bookRoom(room1, 5);
+        assertEquals(null, hotel.bookRoom(room1, 5));
+    }
+
 }

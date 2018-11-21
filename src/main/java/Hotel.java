@@ -55,9 +55,15 @@ public class Hotel {
     }
 
     public Booking bookRoom(Bedroom room, int numberOfNights) {
-        Booking newBooking = new Booking(room, numberOfNights);
-        this.bookings.add(newBooking);
-        return newBooking;
+        if (room.checkStatus() == true) {
+            Booking newBooking = new Booking(room, numberOfNights);
+            this.bookings.add(newBooking);
+            room.changeStatus();
+            return newBooking;
+        } else {
+            System.out.println("Room already booked!");
+            return null;
+        }
     }
 
     public int bookingCount() {
@@ -67,4 +73,6 @@ public class Hotel {
     public void receivePayment(int bill){
         this.till += bill;
     }
+
+
 }
