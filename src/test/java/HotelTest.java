@@ -13,6 +13,7 @@ public class HotelTest {
     Dining bistro;
     Guest guest1;
     Guest guest2;
+    Guest guest3;
 
     @Before
     public void before(){
@@ -25,6 +26,7 @@ public class HotelTest {
         bistro = new Dining(10, "Bistro");
         guest1 = new Guest("Thomas");
         guest2 = new Guest("Oksana");
+        guest3 = new Guest("Jackie");
     }
 
     @Test
@@ -55,6 +57,14 @@ public class HotelTest {
     public void checkGuestInFunction(){
         hotel.checkIn(guest1, roomA);
         assertEquals(1, roomA.guestCount());
+    }
+
+    @Test
+    public void capacityLimitTest(){
+        hotel.checkIn(guest1, room1);
+        hotel.checkIn(guest2, room1);
+        hotel.checkIn(guest3, room1);
+        assertEquals(2, room1.guestCount());
     }
 
 }
