@@ -12,4 +12,16 @@ public class Bedroom {
         this.type = type;
         this.guests = new ArrayList<>();
     }
+
+    public int guestCount() {
+        return this.guests.size();
+    }
+
+    public void addGuest(Guest guest) {
+        if(this.guestCount() < this.capacity) {
+            this.guests.add(guest);
+        }else{
+            System.out.println("Sorry room full");
+        }
+    }
 }
