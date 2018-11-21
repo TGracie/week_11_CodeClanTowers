@@ -5,12 +5,14 @@ public class Bedroom {
     private int capacity;
     private ArrayList<Guest> guests;
     private String type;
+    private int rate;
 
-    public Bedroom(int number, int capacity, String type){
+    public Bedroom(int number, int capacity, String type, int rate){
         this.number = number;
         this.capacity = capacity;
         this.type = type;
         this.guests = new ArrayList<>();
+        this.rate = rate;
     }
 
     public int guestCount() {
@@ -27,5 +29,10 @@ public class Bedroom {
 
     public void checkOutGuest(Guest guest) {
         this.guests.remove(guest);
+    }
+
+    public int createBill(Booking booking){
+        int bill = booking.getNights() * this.rate;
+        return bill;
     }
 }

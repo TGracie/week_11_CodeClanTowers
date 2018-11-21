@@ -11,7 +11,7 @@ public class DiningTest {
     @Before
     public void before(){
         cafe = new Dining(3, "Cafe");
-        guest1 = new Guest("Thomas");
+        guest1 = new Guest("Thomas", 300);
     }
 
     @Test

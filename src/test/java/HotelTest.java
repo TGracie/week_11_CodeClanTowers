@@ -18,15 +18,15 @@ public class HotelTest {
     @Before
     public void before(){
         hotel = new Hotel("Marriott");
-        room1 = new Bedroom(1, 2, "Double");
-        room2 = new Bedroom(2, 1, "Single");
+        room1 = new Bedroom(1, 2, "Double", 80);
+        room2 = new Bedroom(2, 1, "Single", 60);
         roomA = new Function(3, "A");
         roomB = new Function(5, "B");
         cafe = new Dining(5, "Cafe");
         bistro = new Dining(10, "Bistro");
-        guest1 = new Guest("Thomas");
-        guest2 = new Guest("Oksana");
-        guest3 = new Guest("Jackie");
+        guest1 = new Guest("Thomas", 3000);
+        guest2 = new Guest("Oksana", 5000);
+        guest3 = new Guest("Jackie", 5000);
     }
 
     @Test
@@ -65,6 +65,28 @@ public class HotelTest {
         hotel.checkIn(guest2, room1);
         hotel.checkIn(guest3, room1);
         assertEquals(2, room1.guestCount());
+    }
+
+    @Test
+    public void bookRoomTest(){
+        hotel.bookRoom(room1, 5);
+        assertEquals(1, hotel.bookingCount());
+    }
+
+    @Test
+    public void canPayBill(){
+        // booking object created and added to bookings arraylist
+        Booking newBooking = hotel.bookRoom(room1, 5);
+
+        int bill = room1.createBill(newBooking);
+
+        // want to get a bill from somewhere
+
+        // guest needs to pay bill
+        guest1.payBill(bill);
+
+        // asserting that the money has left the guest
+        assertEquals(2600, guest1.wallet());
     }
 
 }

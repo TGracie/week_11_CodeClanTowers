@@ -12,8 +12,8 @@ public class FunctionTest {
     @Before
     public void before(){
         roomA = new Function(50, "A");
-        guest1 = new Guest("Ian");
-        guest2 = new Guest("Jenna");
+        guest1 = new Guest("Ian", 300);
+        guest2 = new Guest("Jenna", 300);
     }
 
     @Test

@@ -5,12 +5,14 @@ public class Hotel {
     private ArrayList<Bedroom> bedrooms;
     private ArrayList<Function> functions;
     private ArrayList<Dining> dining;
+    private ArrayList<Booking> bookings;
 
     public Hotel(String name){
         this.name = name;
         this.bedrooms = new ArrayList<>();
         this.functions = new ArrayList<>();
         this.dining = new ArrayList<>();
+        this.bookings = new ArrayList<>();
     }
 
     public void addBedroom(Bedroom room) {
@@ -46,5 +48,14 @@ public class Hotel {
         function.addGuest(guest);
     }
 
+    public Booking bookRoom(Bedroom room, int numberOfNights) {
+        Booking newBooking = new Booking(room, numberOfNights);
+        this.bookings.add(newBooking);
+        return newBooking;
+    }
 
+
+    public int bookingCount() {
+        return this.bookings.size();
+    }
 }
